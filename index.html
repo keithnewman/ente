@@ -17,9 +17,11 @@
     <body>
         <img id="icon">
         <p id="statement"></p>
+        <button id="btn">Try something else &gt;</button>
         <script>
             var icon = document.getElementById("icon");
             var statement = document.getElementById("statement");
+            var btn = document.getElementById("btn");
             var objects = {
                 duck: '1f986', // #0
                 frog: '1f438', // #1
@@ -41,19 +43,23 @@
             };
             var objectKeys = Object.keys(objects);
             var objectLength = objectKeys.length;
-            var i = Math.floor(Math.random() * objectLength);
-            objectName = objectKeys[i];
-            var objectCode = objects[objectName];
-            icon.src = "svg/" + objectCode + ".svg";
-            icon.alt = objectName;
-            var textToDisplay = "";
-            if (i) {
-                textToDisplay = "Das ist keine Ente!";
-            } else {
-                textToDisplay = "Das ist eine Ente!";
+            function loadNext() {
+                var i = Math.floor(Math.random() * objectLength);
+                objectName = objectKeys[i];
+                var objectCode = objects[objectName];
+                icon.src = "svg/" + objectCode + ".svg";
+                icon.alt = objectName;
+                var textToDisplay = "";
+                if (i) {
+                    textToDisplay = "Das ist keine Ente!";
+                } else {
+                    textToDisplay = "Das ist eine Ente!";
+                }
+                icon.title = textToDisplay;
+                statement.innerText = textToDisplay;
             }
-            icon.title = textToDisplay;
-            statement.innerText = textToDisplay;
+            btn.addEventListener("click", loadNext);
+            loadNext();
         </script>
     </body>
 </html>
