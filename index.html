@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex,nofollow">
+        <meta name="description" content="Is that a duck?">
+        <title>Ist das eine Ente?</title>
+        <link href="style.css" rel="css/stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+        <!--[if lt IE 9]>" | safeHTML }}
+                <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+                <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        {{ "<![endif]-->
+    </head>
+    <body>
+        <img id="icon">
+        <p id="statement"></p>
+        <script>
+            var icon = document.getElementById("icon");
+            var statement = document.getElementById("statement");
+            var objects = {
+                duck: '1f986', // #0
+                frog: '1f438', // #1
+                cow: '1f404',
+                wolf: '1f43a',
+                poop: '1f4a9',
+                pig: '1f437',
+                crocodile: '1f40a',
+                dog2: '1f415',
+                goat: '1f410',
+                snail: '1f40c',
+                mushroom: '1f344',
+                alien: '1f47d',
+                fire: '1f525',
+                banana: '1f34c',
+                rocket: '1f680',
+                cherries: '1f352',
+                guitar: '1f3b8' // #16
+            };
+            var objectKeys = Object.keys(objects);
+            var objectLength = objectKeys.length;
+            var i = Math.floor(Math.random() * objectLength);
+            objectName = objectKeys[i];
+            var objectCode = objects[objectName];
+            icon.src = "svg/" + objectCode + ".svg";
+            icon.alt = objectName;
+            var textToDisplay = "";
+            if (i) {
+                textToDisplay = "Das ist keine Ente!";
+            } else {
+                textToDisplay = "Das ist eine Ente!";
+            }
+            icon.title = textToDisplay;
+            statement.innerText = textToDisplay;
+        </script>
+    </body>
+</html>
