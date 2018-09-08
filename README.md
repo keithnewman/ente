@@ -9,11 +9,13 @@ Ja, das ist sehr gut!
 
 And that's really all there is to it.
 
-=== License
+This page can be viewed at <https://keithnewman.github.io/ente/>
+
+### License
 
 This work is distributed under an MIT license.
 
-=== Credits
+### Credits
 
 Clarissa Barratt for first showing me the phrase "Das ist keine Ente" which she
 encountered on Duolingo, which became the basis of a long-running joke.
