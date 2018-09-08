@@ -2,17 +2,48 @@
 
 body {
   text-align: center;
-  font-size: 6em;
-  line-height: 2em;
+  line-height: 15vh;
   background-color: linen;
 }
 
 p{
   font-family: Kalam, Arial, sans-serif;
-  margin-top: 0.5em;
+  margin: 0 0 5vh;
+  font-size: 15vh;
 }
 
 img{
-  max-width: 400px;
-  margin-bottom: 0;
+  /* max-width: 400px; */
+  height: 48vh;
+  margin: 10px 0 0;
+}
+
+button {
+    background-color: #0044ee;
+    border-radius: 10px;
+    border: none;
+    padding: 2vh 20px;
+    color: linen;
+    transition: 0.5s;
+    margin: 0 auto 3vh;
+    font-size: 7vh;
+}
+
+button:hover {
+    background-color: #26f;
+    box-shadow: 0 0 3px #333;
+    color: #fff;
+}
+
+@media screen and (max-width: 720px) {
+    body {line-height: 8vh;}
+    img {height: 45vh;}
+    p {font-size: 8vh;}
+    button {font-size: 5vh;}
+}
+@media screen and (max-width: 500px) {
+    body {line-height: 6vh;}
+    img {height: 35vh;}
+    p {font-size: 3vh;}
+    button {font-size: 3vh;}
 }
