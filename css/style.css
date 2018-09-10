@@ -1,21 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Kalam:300');
 
 body {
-  text-align: center;
-  line-height: 15vh;
-  background-color: linen;
+    text-align: center;
+    line-height: 15vh;
+    background-color: linen;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
 }
 
 p{
-  font-family: Kalam, Arial, sans-serif;
-  margin: 0 0 5vh;
-  font-size: 15vh;
+    font-family: Kalam, Arial, sans-serif;
+    margin: 0 0 5vh;
+    font-size: 15vh;
 }
 
 img{
-  /* max-width: 400px; */
-  height: 48vh;
-  margin: 10px 0 0;
+    height: 48vh;
+    margin: 0;
 }
 
 button {
@@ -25,7 +30,7 @@ button {
     padding: 2vh 20px;
     color: linen;
     transition: 0.5s;
-    margin: 0 auto 3vh;
+    margin: 0 auto;
     font-size: 7vh;
 }
 
