@@ -52,3 +52,5 @@ button:hover {
     p {font-size: 3vh;}
     button {font-size: 3vh;}
 }
+
+.hiddenObject {opacity:0;}

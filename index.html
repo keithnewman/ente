@@ -17,7 +17,7 @@
     </head>
     <body>
         <img id="icon" class="animated">
-        <p id="statement"></p>
+        <p id="statement" class="hiddenObject"></p>
         <button id="btn">Try something else &gt;</button>
         <script>
             var icon = document.getElementById("icon");
@@ -47,37 +47,36 @@
             var objectKeys = Object.keys(objects);
             var objectLength = objectKeys.length;
 
-            // Animation
-            function anim(style) {
-                icon.addClass(style + ' animated');
-            }
-
             // Change the current icon shown
             function loadNext() {
                 var i = Math.floor(Math.random() * objectLength);
                 objectName = objectKeys[i];
                 var objectCode = objects[objectName];
-                // anim("bounceInRight");
+                icon.src = "svg/" + objectCode + ".svg";
+                icon.alt = objectName;
+                var textToDisplay = "";
+                if (i) {
+                    textToDisplay = "Das ist keine Ente!";
+                } else {
+                    textToDisplay = "Das ist eine Ente!";
+                }
+                icon.title = textToDisplay;
+                icon.className = "animated bounceInRight";
+                statement.innerText = textToDisplay;
+                window.setTimeout(function(){
+                    statement.className = "animated fadeIn";
+                }, 1000);
+            }
+
+            // animate current stuff out of page, then load in new icon
+            function changeToNext() {
                 icon.className = "animated bounceOutLeft";
                 statement.className = "animated fadeOut";
-                window.setTimeout(function(){
-                    icon.src = "svg/" + objectCode + ".svg";
-                    icon.alt = objectName;
-                    icon.className = "animated bounceInRight";
-                }, 1000);
-                window.setTimeout(function(){
-                    var textToDisplay = "";
-                    if (i) {
-                        textToDisplay = "Das ist keine Ente!";
-                    } else {
-                        textToDisplay = "Das ist eine Ente!";
-                    }
-                    icon.title = textToDisplay;
-                    statement.innerText = textToDisplay;
-                    statement.className = "animated fadeIn";
-                }, 2000);
+                window.setTimeout(loadNext, 1000);
             }
-            btn.addEventListener("click", loadNext);
+            btn.addEventListener("click", changeToNext);
+
+            // Load something initially for the page
             loadNext();
         </script>
     </body>
