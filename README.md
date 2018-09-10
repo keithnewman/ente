@@ -21,3 +21,6 @@ Clarissa Barratt for first showing me the phrase "Das ist keine Ente" which she
 encountered on Duolingo, which became the basis of a long-running joke.
 
 Emoji provided by [twemoji](https://twemoji.twitter.com/).
+
+Animations provided by [Dan Eden](https://daneden.me/)'s
+[animate.css](https://daneden.github.io/animate.css/).
