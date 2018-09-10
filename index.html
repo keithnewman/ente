@@ -16,13 +16,15 @@
         {{ "<![endif]-->
     </head>
     <body>
-        <img id="icon">
+        <img id="icon" class="animated">
         <p id="statement"></p>
         <button id="btn">Try something else &gt;</button>
         <script>
             var icon = document.getElementById("icon");
             var statement = document.getElementById("statement");
             var btn = document.getElementById("btn");
+
+            // Possible icons and their unicode refs
             var objects = {
                 duck: '1f986', // #0
                 frog: '1f438', // #1
@@ -44,20 +46,36 @@
             };
             var objectKeys = Object.keys(objects);
             var objectLength = objectKeys.length;
+
+            // Animation
+            function anim(style) {
+                icon.addClass(style + ' animated');
+            }
+
+            // Change the current icon shown
             function loadNext() {
                 var i = Math.floor(Math.random() * objectLength);
                 objectName = objectKeys[i];
                 var objectCode = objects[objectName];
-                icon.src = "svg/" + objectCode + ".svg";
-                icon.alt = objectName;
-                var textToDisplay = "";
-                if (i) {
-                    textToDisplay = "Das ist keine Ente!";
-                } else {
-                    textToDisplay = "Das ist eine Ente!";
-                }
-                icon.title = textToDisplay;
-                statement.innerText = textToDisplay;
+                // anim("bounceInRight");
+                icon.className = "animated bounceOutLeft";
+                statement.className = "animated fadeOut";
+                window.setTimeout(function(){
+                    icon.src = "svg/" + objectCode + ".svg";
+                    icon.alt = objectName;
+                    icon.className = "animated bounceInRight";
+                }, 1000);
+                window.setTimeout(function(){
+                    var textToDisplay = "";
+                    if (i) {
+                        textToDisplay = "Das ist keine Ente!";
+                    } else {
+                        textToDisplay = "Das ist eine Ente!";
+                    }
+                    icon.title = textToDisplay;
+                    statement.innerText = textToDisplay;
+                    statement.className = "animated fadeIn";
+                }, 2000);
             }
             btn.addEventListener("click", loadNext);
             loadNext();
