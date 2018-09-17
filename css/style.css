@@ -1,24 +1,61 @@
 @import url('https://fonts.googleapis.com/css?family=Caveat');
+@import url('https://fonts.googleapis.com/css?family=Lato:300;300i;700');
 
 body {
+    background-color: #faf0e6;
+}
+
+p, h1, h2, ul li {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: normal;
+    text-align: left;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 40px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+em { font-style: italic; }
+
+h1, h2 {
+    font-weight: 700;
+    margin: 15px 0 15px;
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px
+}
+
+section#ente {
     text-align: center;
     line-height: 15vh;
-    background-color: linen;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
     overflow-x: hidden;
+    z-index:1;
 }
 
-p{
-    font-family: Caveat, Arial, sans-serif;
+#ente > p {
+    font-family: "Caveat", Arial, sans-serif;
     margin: 0 0 5vh;
     font-size: 15vh;
+    padding: 0 3vh; /* Hack: Italic exclamation mark goes beyond edge of text area if there's no padding on the right*/
+    text-align: center;
 }
 
-img{
+img {
     height: 48vh;
     margin: 0;
 }
@@ -33,6 +70,7 @@ button {
     margin: 0 auto;
     font-size: 7vh;
     font-family: Caveat, Arial, sans-serif;
+    display:block;
 }
 
 button:hover {
@@ -44,14 +82,54 @@ button:hover {
 @media screen and (max-width: 720px) {
     body {line-height: 8vh;}
     img {height: 45vh;}
-    p {font-size: 8vh;}
+    #ente > p {font-size: 8vh;}
     button {font-size: 5vh;}
 }
 @media screen and (max-width: 500px) {
     body {line-height: 6vh;}
     img {height: 35vh;}
-    p {font-size: 4vh;}
+    #ente > p {font-size: 4vh;}
     button {font-size: 3vh;}
 }
 
 .hiddenObject {opacity:0;}
+
+p#aboutlink {
+    font-family:sans-serif;
+    font-size: 10px;
+    display:block;
+    margin:0;
+    padding:0;
+    line-height: normal;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+section#about {
+    position:fixed;
+    width:100%;
+    height:100vh;
+    overflow-y: scroll;
+    z-index: 2;
+    background-color: #e6e6fa;
+    transition: 0.7s;
+}
+
+.container {
+    max-width:800px;
+    margin:0 auto;
+    padding: 3px 10px;
+}
+
+.hidden {
+    display:none;
+}
+
+.transparent {
+    opacity: 0;
+}
+
+.reveal {
+    display:block!important;
+    opacity:1!important;
+}
